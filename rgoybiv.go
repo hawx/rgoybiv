@@ -3,9 +3,8 @@
 package rgoybiv
 
 import (
-	"github.com/hawx/img/utils"
 	"github.com/hawx/quantise"
-	colorful "github.com/lucasb-eyer/go-colorful"
+	"github.com/lucasb-eyer/go-colorful"
 	"image"
 	"image/color"
 )
@@ -45,12 +44,14 @@ type Palette struct {
 }
 
 func cf(c color.Color) colorful.Color {
-	r, g, b, _ := utils.NormalisedRGBAf(c)
-	return colorful.Color{r, g, b}
-}
+	d := color.NRGBAModel.Convert(c).(color.NRGBA)
+	r := d.R; g := d.G; b := d.B
 
-func sq(v float64) float64 {
-	return v * v
+	rn := float64(uint8(r))
+	gn := float64(uint8(g))
+	bn := float64(uint8(b))
+
+	return colorful.Color{rn, gn, bn}
 }
 
 // GetAverage finds the average colour of an image.
