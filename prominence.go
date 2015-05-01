@@ -1,15 +1,16 @@
 package rgoybiv
 
 import (
-	"github.com/hawx/rgoybiv/distance"
 	"image/color"
 	"math"
 	"sort"
+
+	"hawx.me/code/rgoybiv/distance"
 )
 
 type ColorProminence struct {
-	Value       color.Color
-	Prominence  float64
+	Value      color.Color
+	Prominence float64
 }
 
 type ColorProminences []ColorProminence

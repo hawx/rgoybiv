@@ -3,10 +3,11 @@
 package rgoybiv
 
 import (
-	"github.com/hawx/quantise"
-	"github.com/lucasb-eyer/go-colorful"
 	"image"
 	"image/color"
+
+	"github.com/lucasb-eyer/go-colorful"
+	"hawx.me/code/quantise"
 )
 
 const (
@@ -45,7 +46,9 @@ type Palette struct {
 
 func cf(c color.Color) colorful.Color {
 	d := color.NRGBAModel.Convert(c).(color.NRGBA)
-	r := d.R; g := d.G; b := d.B
+	r := d.R
+	g := d.G
+	b := d.B
 
 	rn := float64(uint8(r))
 	gn := float64(uint8(g))
